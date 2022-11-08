@@ -13,9 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('cars', function(Blueprint $table){
-            $table->foreignId('owner_id')->constrained('cars');
-            $table->foreignId('status_id')->constrained('status');
+        Schema::create('car_services', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId("car_id")->constrained("cars");
+            $table->foreignId("service_id")->constrained("services");
+            $table->foreignId("status_id")->constrained("status");
+            $table->text("note");
+            $table->timestamps();
         });
     }
 
@@ -26,9 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('cars', function(Blueprint $table){
-            $table->dropForeign(['owner_id']);
-            $table->dropForeign(['status_id']);
-        });
+        Schema::dropIfExists('car_services');
     }
 };

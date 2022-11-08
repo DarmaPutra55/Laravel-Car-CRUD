@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('services', function (Blueprint $table) {
             $table->id();
             $table->string('service')->unique(); //Making service unique to prevent duplicate.
+            $table->bigInteger("price");
             $table->timestamps();
         });
     }

@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('staffs', function(Blueprint $table){
-            $table->foreignId('role_id')->constrained('role');
+        Schema::table("users", function(Blueprint $table){
+            $table->foreignId("role_id")->constrained("role");
         });
     }
 
@@ -25,9 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('staffs', function(Blueprint $table){
-            $table->dropForeign(['role_id']);
-            $table->dropColumn(['role_id']);
+        Schema::table("users", function(Blueprint $table){
+            $table->dropForeign(["role_id"]);
         });
     }
 };

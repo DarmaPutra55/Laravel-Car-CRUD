@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('status', function (Blueprint $table) {
             $table->id();
             $table->string('status')->unique(); //Making status unique to prevent duplicate.
-            $table->timestamps();
         });
     }
 
