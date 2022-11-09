@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId("car_id")->constrained("cars");
             $table->foreignId("service_id")->constrained("services");
             $table->foreignId("status_id")->constrained("status");
+            $table->unique(['car_id', 'service_id']);
             $table->text("note");
             $table->timestamps();
         });
